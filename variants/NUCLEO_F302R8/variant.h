@@ -23,7 +23,7 @@
  *        Headers
  *----------------------------------------------------------------------------*/
 
-#include "pins_arduino.h"
+#include "Arduino.h"
 
 #ifdef __cplusplus
 extern "C"{
@@ -32,6 +32,8 @@ extern "C"{
 /*----------------------------------------------------------------------------
  *        Pins
  *----------------------------------------------------------------------------*/
+#include "PeripheralPins.h"
+
 extern const PinName digitalPin[];
 
 enum {
@@ -147,16 +149,19 @@ enum {
 //Do not use basic timer: OC is required
 #define TIMER_SERVO             TIM2  //TODO: advanced-control timers don't work
 
-// UART Definitions
-#define SERIAL_UART_INSTANCE    2 //Connected to ST-Link
+#define DEBUG_UART              ((USART_TypeDef *) USART2)
+
 // UART Emulation
 #define UART_EMUL_RX            PC_1
 #define UART_EMUL_TX            PC_3
 
-// Default pin used for 'Serial' instance (ex: ST-Link)
-// Mandatory for Firmata
+// Serial Pin Firmata
 #define PIN_SERIAL_RX           0
 #define PIN_SERIAL_TX           1
+#define PIN_SERIAL1_RX          2
+#define PIN_SERIAL1_TX          8
+#define PIN_SERIAL2_RX          31
+#define PIN_SERIAL2_TX          17
 
 #ifdef __cplusplus
 } // extern "C"
@@ -166,6 +171,10 @@ enum {
  *----------------------------------------------------------------------------*/
 
 #ifdef __cplusplus
+extern HardwareSerial Serial;
+extern HardwareSerial Serial1;
+extern HardwareSerial Serial2;
+
 // These serial port names are intended to allow libraries and architecture-neutral
 // sketches to automatically default to the correct port name for a particular type
 // of use.  For example, a GPS module would normally connect to SERIAL_PORT_HARDWARE_OPEN,
@@ -181,8 +190,8 @@ enum {
 //
 // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
 //                            pins are NOT connected to anything by default.
-#define SERIAL_PORT_MONITOR     Serial
-#define SERIAL_PORT_HARDWARE    Serial
+#define SERIAL_PORT_MONITOR   Serial
+#define SERIAL_PORT_HARDWARE  Serial
 #endif
 
 #endif /* _VARIANT_ARDUINO_STM32_ */
