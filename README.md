@@ -30,6 +30,7 @@ For advanced user, you can use the repository: see the [Using git repository](ht
     * [Nucleo F207ZG](http://www.st.com/en/evaluation-tools/nucleo-f207zg.html)
 
   * STM32F3
+    * [Nucleo F302R8](http://www.st.com/en/evaluation-tools/nucleo-f302r8.html)
     * [Nucleo F303RE](http://www.st.com/en/evaluation-tools/nucleo-f303re.html)
 
   * STM32F4

@@ -46,9 +46,9 @@ enum {
   PA9,  //D8
   PC7,  //D9
   PB6,  //D10
-  PB_15,//D11
-  PB_14,//D12
-  PB_13,//D13
+  PB15,//D11
+  PB14,//D12
+  PB13,//D13
   PB9,  //D14
   PB8,  //D15
 // ST Morpho
@@ -142,7 +142,7 @@ enum {
 //Timer Definitions
 //Do not use timer used by PWM pins when possible. See PinMap_PWM.
 #define TIMER_TONE              TIM6
-#define TIMER_UART_EMULATED     TIM7
+#define TIMER_UART_EMULATED     TIM17
 
 //Do not use basic timer: OC is required
 #define TIMER_SERVO             TIM2  //TODO: advanced-control timers don't work
